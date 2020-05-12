@@ -13,7 +13,7 @@ steps:
 # Make the template available as part of the build
 - task: CopyFiles@2
   inputs:
-    SourceFolder: 'lamp-app'
+    SourceFolder: '101-vm-simple-linux'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 # - task: PublishBuildArtifacts@1
