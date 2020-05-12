@@ -33,5 +33,5 @@ steps:
     templateLocation: 'Linked artifact'
     csmFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.json'
     csmParametersFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.parameters.json'
-    overrideParameters: '-adminUsername "fabrikam" -adminPasswordOrKey "fabrikam" -dnsLabelPrefix "testjkm"'
+    overrideParameters: '-adminUsername "fabrikam" -adminPasswordOrKey "F*br*k8m" -dnsLabelPrefix "testjkm"'
     deploymentMode: 'Incremental'
