@@ -39,10 +39,10 @@ steps:
                 "value": "fabrikam"
             },
             "adminPasswordOrKey": {
-                "value": "$(passwordVar)"
+                "value": "test"
             },
             "dnsLabelPrefix": {
-                "value": "$(dnsLabelPrefixVar)"
+                "value": "testjkm"
             }
     deploymentMode: 'Incremental'
 
