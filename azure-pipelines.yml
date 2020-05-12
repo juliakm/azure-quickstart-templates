@@ -34,8 +34,15 @@ steps:
     csmFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.json'
     csmParametersFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.parameters.json'
     overrideParameters: |
-      - adminUsername fabrikam 
-      - adminPasswordOrKey $(passwordVar) 
-      - dnsLabelPrefix $(dnsLabelPrefixVar)
+          "parameters": {
+            "adminUsername": {
+                "value": "fabrikam"
+            },
+            "adminPasswordOrKey": {
+                "value": "$(passwordVar)"
+            },
+            "dnsLabelPrefix": {
+                "value": "$(dnsLabelPrefixVar)"
+            }
     deploymentMode: 'Incremental'
 
