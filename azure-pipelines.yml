@@ -31,7 +31,7 @@ steps:
     resourceGroupName: 'armPipelinetry2'
     location: 'East US 2'
     templateLocation: 'Linked artifact'
-    csmFile: 'azuredeploy.json'
-    csmParametersFile: 'azuredeploy.parameters.json'
+    csmFile: 'drop/azuredeploy.json'
+    csmParametersFile: 'drop/azuredeploy.parameters.json'
     deploymentMode: 'Incremental'
 
