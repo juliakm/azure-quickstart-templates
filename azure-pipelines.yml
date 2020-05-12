@@ -13,7 +13,7 @@ steps:
 # Make the template available as part of the build
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '101-vm-simple-linux'
+    SourceFolder: '101-webapp-linux-managed-mysql'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 # - task: PublishBuildArtifacts@1
@@ -35,12 +35,11 @@ steps:
     deploymentScope: 'Resource Group'
     azureResourceManagerConnection: 'DevOps Pipelines - ARM Horizontal Work(82c135d4-f813-4bec-a93e-60e4323918ee)'
     subscriptionId: '82c135d4-f813-4bec-a93e-60e4323918ee'
-    #action: 'Create Or Update Resource Group'
-    action: 'DeleteRG'
+    action: 'Create Or Update Resource Group'
     resourceGroupName: 'armPipelinetry2'
     location: 'East US 2'
     templateLocation: 'Linked artifact'
     csmFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.json'
     csmParametersFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.parameters.json'
-    overrideParameters: '-adminUsername "fabrikam" -adminPasswordOrKey "F*br*k8m" -dnsLabelPrefix "testjkm"'
+    overrideParameters: '-adminUsername "fabrikam" -adminPasswordOrKey "F*br*k8m" -dnsLabelPrefix "testjkm" -siteName "juliakmarm" -administratorLogin "fabrikam" -administratorLoginPassword "F*br*k8m"'
     deploymentMode: 'Incremental'
