@@ -13,7 +13,7 @@ steps:
 # Make the template available as part of the build
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '101-vm-simple-linux'
+    SourceFolder: 'lamp-app'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 # - task: PublishBuildArtifacts@1
@@ -33,5 +33,5 @@ steps:
     templateLocation: 'Linked artifact'
     csmFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.json'
     csmParametersFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.parameters.json'
-    overrideParameters: '-adminUsername "fabrikam" -adminPasswordOrKey "F*br*k8m" -dnsLabelPrefix "testjkm"'
+    overrideParameters: '-adminUsername "fabrikam" -adminPasswordOrKey "F*br*k8m" -dnsLabelPrefix "testjkm" -storageAccountNamePrefix "testjkm" -mySqlPassword F*br*k8m"'
     deploymentMode: 'Incremental'
