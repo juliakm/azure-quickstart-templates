@@ -22,14 +22,16 @@ steps:
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
-# - task: AzureResourceManagerTemplateDeployment@3
-#   inputs:
-#     deploymentScope: 'Resource Group'
-#     azureResourceManagerConnection: 'DevOps Pipelines - ARM Horizontal Work(82c135d4-f813-4bec-a93e-60e4323918ee)'
-#     subscriptionId: '82c135d4-f813-4bec-a93e-60e4323918ee'
-#     action: 'Create Or Update Resource Group'
-#     resourceGroupName: 'ARM Pipeline'
-#     location: 'East US 2'
-#     templateLocation: 'Linked artifact'
-#     deploymentMode: 'Incremental'
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'DevOps Pipelines - ARM Horizontal Work(82c135d4-f813-4bec-a93e-60e4323918ee)'
+    subscriptionId: '82c135d4-f813-4bec-a93e-60e4323918ee'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'ARM Pipeline'
+    location: 'East US 2'
+    templateLocation: 'Linked artifact'
+    csmFile: 'azuredeploy.json'
+    csmParametersFile: 'azuredeploy.parameters.json'
+    deploymentMode: 'Incremental'
 
