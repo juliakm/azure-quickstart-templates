@@ -15,7 +15,7 @@ steps:
   inputs:
     SourceFolder: 'lamp-app'
     Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)/arm'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
