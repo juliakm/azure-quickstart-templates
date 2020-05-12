@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+- none
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -16,19 +16,6 @@ steps:
     SourceFolder: '101-webapp-linux-managed-mysql'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
-# - task: PublishBuildArtifacts@1
-#   inputs:
-#     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-#     ArtifactName: 'drop'
-#     publishLocation: 'Container'
-
-# - task: AzureResourceManagerTemplateDeployment@3
-#   inputs:
-#     deploymentScope: 'Resource Group'
-#     azureResourceManagerConnection: 'DevOps Pipelines - ARM Horizontal Work(82c135d4-f813-4bec-a93e-60e4323918ee)'
-#     subscriptionId: '82c135d4-f813-4bec-a93e-60e4323918ee'
-#     action: 'DeleteRG'
-#     resourceGroupName: 'armPipelinetry2'
 
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
@@ -41,6 +28,5 @@ steps:
     templateLocation: 'Linked artifact'
     csmFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.json'
     csmParametersFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.parameters.json'
-    #overrideParameters: '-adminUsername "fabrikam" -adminPasswordOrKey "F*br*k8m" -dnsLabelPrefix "testjkm" -siteName "juliakmarm" -administratorLogin "fabrikam" -administratorLoginPassword "F*br*k8m"'
     overrideParameters: '-siteName "juliakmarm" -administratorLogin "fabrikam" -administratorLoginPassword "F*br*k8m"'
     deploymentMode: 'Incremental'
