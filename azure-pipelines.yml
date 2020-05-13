@@ -22,6 +22,8 @@ steps:
     subscriptionId: '82c135d4-f813-4bec-a93e-60e4323918ee'
     action: 'DeleteRG'
     resourceGroupName: 'ARMPipelinesLAMP-rg'
+    location: 'East US 2'
+
 
 # - task: AzureResourceManagerTemplateDeployment@3
 #   inputs:
