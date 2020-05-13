@@ -14,16 +14,25 @@ steps:
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
+
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
     azureResourceManagerConnection: 'DevOps Pipelines - ARM Horizontal Work(82c135d4-f813-4bec-a93e-60e4323918ee)'
     subscriptionId: '82c135d4-f813-4bec-a93e-60e4323918ee'
-    action: 'Create Or Update Resource Group'
+    action: 'DeleteRG'
     resourceGroupName: 'ARMPipelinesLAMP-rg'
-    location: 'East US 2'
-    templateLocation: 'Linked artifact'
-    csmFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.json'
-    csmParametersFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.parameters.json'
-    overrideParameters: '-siteName $(siteName) -administratorLogin $(adminUser) -administratorLoginPassword $(ARM_PASS)'
-    deploymentMode: 'Incremental'
+
+# - task: AzureResourceManagerTemplateDeployment@3
+#   inputs:
+#     deploymentScope: 'Resource Group'
+#     azureResourceManagerConnection: 'DevOps Pipelines - ARM Horizontal Work(82c135d4-f813-4bec-a93e-60e4323918ee)'
+#     subscriptionId: '82c135d4-f813-4bec-a93e-60e4323918ee'
+#     action: 'Create Or Update Resource Group'
+#     resourceGroupName: 'ARMPipelinesLAMP-rg'
+#     location: 'East US 2'
+#     templateLocation: 'Linked artifact'
+#     csmFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.json'
+#     csmParametersFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.parameters.json'
+#     overrideParameters: '-siteName $(siteName) -administratorLogin $(adminUser) -administratorLoginPassword $(ARM_PASS)'
+#     deploymentMode: 'Incremental'
