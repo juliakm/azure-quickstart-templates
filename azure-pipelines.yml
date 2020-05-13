@@ -1,7 +1,5 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+variables:
+  ARM_PASS: $(adminPass)
 
 trigger:
 - none
@@ -10,7 +8,6 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-# Make the template available as part of the build
 - task: CopyFiles@2
   inputs:
     SourceFolder: '101-webapp-linux-managed-mysql'
@@ -28,7 +25,5 @@ steps:
     templateLocation: 'Linked artifact'
     csmFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.json'
     csmParametersFile: '$(Build.ArtifactStagingDirectory)/azuredeploy.parameters.json'
-    overrideParameters: '-siteName $(siteName) -administratorLogin $(adminUser) -administratorLoginPassword $(SECRET_PASS)'
+    overrideParameters: '-siteName $(siteName) -administratorLogin $(adminUser) -administratorLoginPassword $(ARM_PASS)'
     deploymentMode: 'Incremental'
-  env:
-    SECRET_PASS: $(adminPass)
